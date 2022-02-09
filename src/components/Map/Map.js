@@ -4,21 +4,22 @@ import { Paper, Typography, useMediaQuery, Rating, Box } from "@mui/material";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import { smBreakPoint } from "../Header/Header";
 
-const Map = () => {
-  //deafult coordinates
-  const coordinate = { lat: 0, lng: 0 };
+const Map = ({ coordinates, setCoordinates, setBounds }) => {
   return (
     <>
-      <Box sx={{ height: { xs: "250%", md: "100%" }, width: "100%" }}>
+      <Box sx={{ height: { xs: "70vh", md: "94vh" }, width: "100%" }}>
         {/* google map setup */}
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyDwEt1N03pvidGzSKG6FLQDbsDRHG34_pQ" }}
-          defaultCenter={coordinate}
-          center={coordinate}
+          defaultCenter={coordinates}
+          center={coordinates}
           defaultZoom={14}
           margin={[50, 50, 50, 50]}
           options={""}
-          onChange={""}
+          onChange={(e) => {
+            setCoordinates({ lat: e.center.lat, lng: e.center.lng });
+            setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
+          }}
           onChildClick={""}
         ></GoogleMapReact>
       </Box>
