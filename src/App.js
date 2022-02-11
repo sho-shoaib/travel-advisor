@@ -26,7 +26,7 @@ function App() {
 
     //since getPlacesData is async
     getPlacesData(bounds.sw, bounds.ne).then((data) => {
-      console.log(data);
+      console.log(data, "df");
       setPlaces(data);
     });
   }, [coordinates, bounds]);
@@ -44,6 +44,7 @@ function App() {
             setCoordinates={setCoordinates}
             coordinates={coordinates}
             setBounds={setBounds}
+            places={places}
           />
         </Grid>
       </Grid>

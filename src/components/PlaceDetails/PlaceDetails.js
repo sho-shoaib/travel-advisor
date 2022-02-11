@@ -18,7 +18,7 @@ const PlaceDetails = ({ place }) => {
   return (
     <Card elevation={6}>
       <CardMedia
-        sx={{ height: { xs: 250, md: 350 } }}
+        sx={{ height: { xs: 250, md: 300 } }}
         image={place.photo ? place.photo.images.large.url : restoImage}
         title={place.name}
       ></CardMedia>
